@@ -32,10 +32,10 @@ jobs:
         run: echo "SHOULD_RELEASE=${{ steps.check.outputs.changed == 'true' || github.event_name == 'workflow_dispatch' }}" >> $GITHUB_ENV
 
       - name: ⚙️ Setup Node.js v16
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v6
         if: env.SHOULD_RELEASE == 'true'
         with:
-          node-version: '16.x'
+          node-version: '22.23.4'
           registry-url: 'https://registry.npmjs.org'
           scope: '@erc725'
           cache: 'npm'
